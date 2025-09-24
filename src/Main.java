@@ -1,7 +1,8 @@
+import com.google.gson.Gson;
+
 public class Main {
     public static void main(String[] args) {
         ApiClient client = new ApiClient();
-        String response = client.fetchQuestions(5, 12, "multiple", "easy");
-        System.out.println(response);
+        System.out.println(client.fetchQuestions(1, 12, "multiple", "easy"));
     }
 }
