@@ -1,5 +1,7 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        ApiClient client = new ApiClient();
+        String response = client.fetchQuestions(5, 12, "multiple", "easy");
+        System.out.println(response);
     }
 }

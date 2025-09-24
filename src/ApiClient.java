@@ -6,7 +6,7 @@ import java.net.http.HttpResponse;
 public class ApiClient {
     private static HttpClient client = HttpClient.newHttpClient();
 
-    public String fetchQuestion(int amount, int category, String type, String difficulty){
+    public String fetchQuestions(int amount, int category, String type, String difficulty){
         String url = "https://opentdb.com/api.php?amount=" + amount + "&category=" + category + "&difficulty=" + difficulty + "&type=" + type;
         HttpRequest request = HttpRequest.newBuilder()
                 .header("Content-Type", "application/json")
