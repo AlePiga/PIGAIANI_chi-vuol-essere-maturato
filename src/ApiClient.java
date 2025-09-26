@@ -8,7 +8,7 @@ import java.net.http.HttpResponse;
 public class ApiClient {
     private static HttpClient client = HttpClient.newHttpClient();
 
-    public String fetchQuestions(int amount, int category, String type, String difficulty){
+    public void fetchQuestions(int amount, int category, String type, String difficulty){
         String url = "https://opentdb.com/api.php?amount=" + amount + "&category=" + category + "&difficulty=" + difficulty + "&type=" + type;
         HttpRequest request = HttpRequest.newBuilder()
                 .header("Content-Type", "application/json")
@@ -16,12 +16,12 @@ public class ApiClient {
                 .GET()
                 .build();
 
-        HttpResponse<String> resp;
+        HttpResponse<String> resp = null; // huh?
         try{
             resp = client.send(request, HttpResponse.BodyHandlers.ofString());
         }
         catch (IOException | InterruptedException e){
-            return "Errore nella richiesta API!!";
+            System.out.println("Errore nella richiesta API!!");
         }
 
         if(resp == null){
@@ -35,6 +35,6 @@ public class ApiClient {
             System.out.println("Risposta corretta: " + q.correct_answer);
         }
 
-        return resp.body();
+        return;
     }
 }
